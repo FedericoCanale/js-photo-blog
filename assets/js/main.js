@@ -29,10 +29,28 @@ Tools
 // Test chiamata API con Axios per controllare sia tutto funzionate
 
 const API_URL = "https://lanciweb.github.io/demo/api/pictures/";
+const cardsRow = document.getElementById("cards-row");
 
 axios
   .get(API_URL)
   .then(function (response) {
-    console.log("Dati ricevuti:", response.data);
+    const data = response.data;
+
+    // Pulizia del contenitore
+    cardsRow.innerHTML = "";
+
+    // Ciclo sugli oggetti ricevuti
+    data.forEach(function (item, index) {
+      cardsRow.innerHTML += `
+        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-5">
+          <div class="photo-card text-center position-relative">
+            <img src="./assets/img/pin.svg" alt="Pin rosso" class="pin-img">
+            <div class="photo-inner bg-${index + 1}"></div>
+            <p class="photo-caption" style="text-transform: uppercase; font-weight: 900;">
+              ${item.title}
+            </p>
+          </div>
+        </div>
+      `;
+    });
   })
-  
