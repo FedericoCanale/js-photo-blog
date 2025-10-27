@@ -24,3 +24,15 @@ Tools
     - document.getElementById()
 
 */
+
+
+// Test chiamata API con Axios per controllare sia tutto funzionate
+
+const API_URL = "https://lanciweb.github.io/demo/api/pictures/";
+
+axios
+  .get(API_URL)
+  .then(function (response) {
+    console.log("Dati ricevuti:", response.data);
+  })
+  
