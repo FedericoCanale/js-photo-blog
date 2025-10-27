@@ -51,7 +51,6 @@ header h1 {
     width: 300px;
     height: 300px;
     margin-bottom: 20px;
-    margin-left: 5px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
@@ -76,10 +75,43 @@ header h1 {
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.3));
 }
 
+.photo-date {
+    font-family: 'Sometype Mono', monospace;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0 0 6px 5px;
+    /* leggero allineamento al bordo della foto */
+    text-align: left;
+}
+
+.photo-title-strong {
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: left;
+    margin-top: 5px;
+}
+
 /* Colori personalizzati per ogni card */
-.bg-1 { background-color: #92c952; } 
-.bg-2 { background-color: #771796; } 
-.bg-3 { background-color: #24f355; } 
-.bg-4 { background-color: #d32776; } 
-.bg-5 { background-color: #f66b97; } 
-.bg-6 { background-color: #56a8c2; } 
+.bg-1 {
+    background-color: #92c952;
+}
+
+.bg-2 {
+    background-color: #771796;
+}
+
+.bg-3 {
+    background-color: #24f355;
+}
+
+.bg-4 {
+    background-color: #d32776;
+}
+
+.bg-5 {
+    background-color: #f66b97;
+}
+
+.bg-6 {
+    background-color: #56a8c2;
+}

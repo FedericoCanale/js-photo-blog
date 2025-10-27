@@ -6,16 +6,16 @@
     
 To do list
 
-	•	Creare nel file HTML un contenitore vuoto dove verranno stampate le card (id="cards-row").
-	•	Controllare la struttura dell’array 
+    •	Creare nel file HTML un contenitore vuoto dove verranno stampate le card (id="cards-row").
+    •	Controllare la struttura dell’array 
 	
   Struttura JavaScript
-	•	Creare una funzione asincrona per chiamare l’API con axios.get().
-	•	Salvare i dati ottenuti in una variabile.
-	•	Scorrere l’array con forEach per creare l’HTML di ogni card.
+    •	Creare una funzione asincrona per chiamare l’API con axios.get().
+    •	Salvare i dati ottenuti in una variabile.
+    •	Scorrere l’array con forEach per creare l’HTML di ogni card.
   Integrazione con il layout
-	•	Mantenere la struttura e lo stile delle card già presenti.
-	•	Impostare l’immagine dell’API come background-image dentro .photo-inner.
+    •	Mantenere la struttura e lo stile delle card già presenti.
+    •	Impostare l’immagine dell’API come background-image dentro .photo-inner.
     
 Tools 
     - Axios Cdn
@@ -32,25 +32,28 @@ const API_URL = "https://lanciweb.github.io/demo/api/pictures/";
 const cardsRow = document.getElementById("cards-row");
 
 axios
-  .get(API_URL)
-  .then(function (response) {
-    const data = response.data;
+    .get(API_URL)
+    .then(function (response) {
+        const data = response.data;
+        cardsRow.innerHTML = "";
 
-    // Pulizia del contenitore
-    cardsRow.innerHTML = "";
-
-    // Ciclo sugli oggetti ricevuti
-    data.forEach(function (item, index) {
-      cardsRow.innerHTML += `
+        data.forEach(function (item, index) {
+            cardsRow.innerHTML += `
         <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-5">
           <div class="photo-card text-center position-relative">
             <img src="./assets/img/pin.svg" alt="Pin rosso" class="pin-img">
-            <div class="photo-inner bg-${index + 1}"></div>
-            <p class="photo-caption" style="text-transform: uppercase; font-weight: 900;">
-              ${item.title}
-            </p>
+
+            <div class="photo-inner"
+                 style="background-image: url('${item.url}');
+                        background-size: cover;
+                        background-position: center;">
+            </div>
+
+            <p class="photo-date">${item.date}</p>
+            <p class="photo-caption photo-title-strong">${item.title}</p>
           </div>
         </div>
       `;
-    });
-  })
+        });
+    })
+
