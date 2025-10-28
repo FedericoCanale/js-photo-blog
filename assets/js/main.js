@@ -32,13 +32,13 @@ const API_URL = "https://lanciweb.github.io/demo/api/pictures/";
 const cardsRow = document.getElementById("cards-row");
 
 axios
-    .get(API_URL)
-    .then(function (response) {
-        const data = response.data;
-        cardsRow.innerHTML = "";
+  .get(API_URL)
+  .then(function (response) {
+    const data = response.data;
+    cardsRow.innerHTML = "";
 
-        data.forEach(function (item, index) {
-            cardsRow.innerHTML += `
+    data.forEach(function (item, index) {
+      cardsRow.innerHTML += `
         <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-5">
           <div class="photo-card text-center position-relative">
             <img src="./assets/img/pin.svg" alt="Pin rosso" class="pin-img">
@@ -54,6 +54,15 @@ axios
           </div>
         </div>
       `;
-        });
-    })
+    });
+  })
 
+// Chiusura overlay col bottone
+const overlayEl = document.getElementById('overlay');
+const overlayCloseBtn = document.getElementById('overlay-close');
+
+function closeOverlay() {
+  overlayEl.classList.add('d-none');
+}
+
+overlayCloseBtn.addEventListener('click', closeOverlay);
