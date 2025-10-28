@@ -44,7 +44,8 @@ axios
             <img src="./assets/img/pin.svg" alt="Pin rosso" class="pin-img">
 
             <div class="photo-inner"
-                 style="background-image: url('${item.url}');
+              data-url="${item.url}"  
+            style="background-image: url('${item.url}');
                         background-size: cover;
                         background-position: center;">
             </div>
