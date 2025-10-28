@@ -68,9 +68,20 @@ function closeOverlay() {
 
 overlayCloseBtn.addEventListener('click', closeOverlay);
 
-// funzione per cliccare su immagine e aprire overlay con immagine picsum
+// mostro nell'overlay proprio la foto cliccata
+const overlayImg = document.getElementById('overlay-img');
+
 cardsRow.addEventListener('click', function (e) {
   const photo = e.target.closest('.photo-inner');
-  if (!photo) return;                 // click non sulla foto: ignorare la funzione
-  overlayEl.classList.remove('d-none'); // mostra overlay
+  if (!photo) return;
+
+  // prendo il link dell'immagine salvato nel data-url della card
+  const url = photo.dataset.url;
+  if (!url) return;
+
+  // aggiorno la src dell'immagine dentro l'overlay
+  overlayImg.src = url;
+
+  // mostro l'overlay
+  overlayEl.classList.remove('d-none');
 });
