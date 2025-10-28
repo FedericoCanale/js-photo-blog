@@ -26,12 +26,24 @@
 
         <main>
             <div class="container my-5">
-    <div id="cards-row" class="row justify-content-center">
-      <!-- Le card verranno generate via JavaScript -->
-    </div>
-        </main>
-        <script
-            src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="./assets/js/main.js"></script>
-    </body>
-</html>
+                <div id="cards-row" class="row justify-content-center">
+                    <!-- Le card verranno generate via JavaScript -->
+                </div>
+            </main>
+            <!-- Overlay -->
+            <div id="overlay" class="overlay">
+                <div class="overlay-backdrop"></div>
+                <div class="overlay-content text-center">
+                    <button id="overlay-close" type="button"
+                        class="btn btn-light btn-sm overlay__close">
+                        Chiudi
+                    </button>
+                    <img src="https://picsum.photos/800/600"
+                        alt="Immagine overlay" class="img-fluid">
+                </div>
+            </div>
+            <script
+                src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script src="./assets/js/main.js"></script>
+        </body>
+    </html>
