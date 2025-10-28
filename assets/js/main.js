@@ -66,3 +66,10 @@ function closeOverlay() {
 }
 
 overlayCloseBtn.addEventListener('click', closeOverlay);
+
+// funzione per cliccare su immagine e aprire overlay con immagine picsum
+cardsRow.addEventListener('click', function (e) {
+  const photo = e.target.closest('.photo-inner');
+  if (!photo) return;                 // click non sulla foto: ignorare la funzione
+  overlayEl.classList.remove('d-none'); // mostra overlay
+});
